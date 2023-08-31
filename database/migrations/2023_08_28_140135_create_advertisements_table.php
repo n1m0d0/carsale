@@ -23,6 +23,10 @@ return new class extends Migration
             $table->string('mileage');
             $table->tinyInteger('functioning');
             $table->tinyInteger('esthetic');
+            $table->string('image1');
+            $table->string('image2');
+            $table->string('image3');
+            $table->string('image4');
             $table->boolean('is_publicated')->default(false);
             $table->timestamps();
             $table->softDeletes();

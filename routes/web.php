@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdvertisementController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +29,4 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::controller(PageController::class)->group(function () {
-    Route::get('advertisement', 'advertisement')->name('page.advertisement')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']);
-});
+Route::resource('advertisement', AdvertisementController::class);

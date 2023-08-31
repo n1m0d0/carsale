@@ -16,7 +16,7 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
-                    <x-nav-link href="{{ route('page.advertisement') }}" :active="request()->routeIs('page.advertisement')">
+                    <x-nav-link href="{{ route('advertisement.index') }}" :active="request()->routeIs('advertisement.*')">
                         {{ __('Advertisement') }}
                     </x-nav-link>
                 </div>
@@ -147,7 +147,7 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link href="{{ route('page.advertisement') }}" :active="request()->routeIs('page.advertisement')">
+            <x-responsive-nav-link href="{{ route('advertisement.index') }}" :active="request()->routeIs('advertisement.*')">
                 {{ __('Advertisement') }}
             </x-responsive-nav-link>
         </div>
