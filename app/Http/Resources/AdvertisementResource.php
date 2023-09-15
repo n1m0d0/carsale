@@ -29,6 +29,7 @@ class AdvertisementResource extends JsonResource
             'image2' => $this->image2,            
             'image3' => $this->image3,            
             'image4' => $this->image4,
+            'price' => number_format($this->price, 2) . 'Bs',
             'created_at' => $this->created_at->format('d/m/Y'),
             'updated_at' => $this->updated_at->format('d/m/Y'),
         ];

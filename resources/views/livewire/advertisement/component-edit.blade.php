@@ -92,7 +92,7 @@
 
         <x-section-border />
 
-        <x-form-section submit="store">
+        <x-form-section submit="update">
             <x-slot name="title">
                 {{ __('Car status') }}
             </x-slot>
@@ -141,15 +141,7 @@
                             @if ($image1)
                                 <img src="{{ $image1->temporaryUrl() }}" class="w-full h-48 object-cover">
                             @else
-                                <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
-                                </svg>
-                                <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span
-                                        class="font-semibold">Click to upload</span></p>
-                                <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG</p>
+                                <img src="{{ Storage::url($image1Before) }}" class="w-full h-48 object-cover">
                             @endif
                         </div>
                         <input id="image1" type="file" class="hidden" wire:model='image1' />
@@ -164,15 +156,7 @@
                             @if ($image2)
                                 <img src="{{ $image2->temporaryUrl() }}" class="w-full h-48 object-cover">
                             @else
-                                <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
-                                </svg>
-                                <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span
-                                        class="font-semibold">Click to upload</span></p>
-                                <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG</p>
+                                <img src="{{ Storage::url($image2Before) }}" class="w-full h-48 object-cover">
                             @endif
                         </div>
                         <input id="image2" type="file" class="hidden" wire:model='image2' />
@@ -187,15 +171,7 @@
                             @if ($image3)
                                 <img src="{{ $image3->temporaryUrl() }}" class="w-full h-48 object-cover">
                             @else
-                                <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
-                                </svg>
-                                <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span
-                                        class="font-semibold">Click to upload</span></p>
-                                <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG</p>
+                                <img src="{{ Storage::url($image3Before) }}" class="w-full h-48 object-cover">
                             @endif
                         </div>
                         <input id="image3" type="file" class="hidden" wire:model='image3' />
@@ -210,15 +186,7 @@
                             @if ($image4)
                                 <img src="{{ $image4->temporaryUrl() }}" class="w-full h-48 object-cover">
                             @else
-                                <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
-                                </svg>
-                                <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span
-                                        class="font-semibold">Click to upload</span></p>
-                                <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG</p>
+                                <img src="{{ Storage::url($image4Before) }}" class="w-full h-48 object-cover">
                             @endif
                         </div>
                         <input id="image4" type="file" class="hidden" wire:model='image4' />
@@ -235,17 +203,11 @@
             </x-slot>
 
             <x-slot name="actions">
-                <x-button wire:loading.attr="disabled" wire:target="store">
-                    {{ __('Save') }}
+                <x-button wire:loading.attr="disabled" wire:target="update">
+                    {{ __('Update') }}
                 </x-button>
             </x-slot>
         </x-form-section>
-
-        <div class="mt-2">
-            <x-danger-button wire:click='clear' wire:loading.attr="disabled">
-                {{ __('Cancel') }}
-            </x-danger-button>
-        </div>
 
         <x-section-border />
     @endif

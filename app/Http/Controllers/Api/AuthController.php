@@ -30,7 +30,7 @@ class AuthController extends BaseController
         ]);
 
         $success['token'] =  $user->createToken('MyApp')->accessToken;
-        $success['name'] =  $user->name;
+        $success['user_id'] =  $user->id;
    
         return $this->sendResponse($success, 'User register successfully.');
     }
@@ -40,11 +40,11 @@ class AuthController extends BaseController
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $user = Auth::user();
             $success['token'] =  $user->createToken('MyApp')->accessToken;
-            $success['name'] =  $user->name;
+            $success['user_id'] =  $user->id;
 
             return $this->sendResponse($success, 'User login successfully.');
         } else {
-            return $this->sendError('Unauthorised.', ['error' => 'Unauthorised'], 401);
+            return $this->sendError('Unauthorised.', ['error' => 'Unauthorised'], 200);
         }
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdvertisementController;
-use App\Http\Controllers\PageController;
+use App\Http\Controllers\ApproveController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,3 +30,4 @@ Route::middleware([
 });
 
 Route::resource('advertisement', AdvertisementController::class);
+Route::resource('approve', ApproveController::class);

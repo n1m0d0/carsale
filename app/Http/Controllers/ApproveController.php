@@ -5,14 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Advertisement;
 use Illuminate\Http\Request;
 
-class AdvertisementController extends Controller
+class ApproveController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('pages.advertisement.index');
+        return view('pages.approve.index');
     }
 
     /**
@@ -20,7 +20,7 @@ class AdvertisementController extends Controller
      */
     public function create()
     {
-        return view('pages.advertisement.create');
+        //
     }
 
     /**
@@ -36,8 +36,8 @@ class AdvertisementController extends Controller
      */
     public function show(string $id)
     {
-        $advertisement = Advertisement::findOrFail($id);
-        return view('pages.advertisement.show', compact('advertisement'));
+        $advertisement = Advertisement::find($id);
+        return view('pages.approve.show', compact('advertisement'));
     }
 
     /**
@@ -45,8 +45,7 @@ class AdvertisementController extends Controller
      */
     public function edit(string $id)
     {
-        $advertisement = Advertisement::findOrFail($id);
-        return view('pages.advertisement.edit', compact('advertisement'));
+        //
     }
 
     /**

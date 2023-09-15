@@ -6,6 +6,7 @@ use App\Models\Advertisement;
 use Illuminate\Support\Facades\Http;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Usernotnull\Toast\Concerns\WireToast;
 
 class ComponentCreate extends Component
 {
@@ -30,6 +31,7 @@ class ComponentCreate extends Component
     public $image2;
     public $image3;
     public $image4;
+    public $price;
 
     public $validator;
 
@@ -46,7 +48,8 @@ class ComponentCreate extends Component
         'image1' => 'required|image|max:2048',
         'image2' => 'required|image|max:2048',
         'image3' => 'required|image|max:2048',
-        'image4' => 'required|image|max:2048'
+        'image4' => 'required|image|max:2048',
+        'price' => 'required|decimal:0,2|min:0'
     ];
 
     public function mount()
@@ -115,6 +118,7 @@ class ComponentCreate extends Component
         $advertisement->image2 = $this->image2->store('public');
         $advertisement->image3 = $this->image3->store('public');
         $advertisement->image4 = $this->image4->store('public');
+        $advertisement->price = $this->price;
         $advertisement->save();
 
         $this->clear();
@@ -133,6 +137,6 @@ class ComponentCreate extends Component
         $this->functioning = 1;
         $this->esthetic = 1;
 
-        $this->reset(['vin', 'brand', 'model', 'manufactured', 'year', 'plate', 'mileage', 'image1', 'image2', 'image3', 'image4']);
+        $this->reset(['vin', 'brand', 'model', 'manufactured', 'year', 'plate', 'mileage', 'image1', 'image2', 'image3', 'image4', 'price']);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Advertisement;
+namespace App\Livewire\Approve;
 
 use App\Models\Advertisement;
 use Livewire\Component;
@@ -33,39 +33,18 @@ class ComponentIndex extends Component
     {
         $queryAdvertisement = Advertisement::query()
             ->when($this->search, function ($query) {
-                $query->where('name', 'like', '%' . $this->search . '%');
+                $query->where('brand', 'like', '%' . $this->search . '%')
+                ->orwhere('model', 'like', '%' . $this->search . '%')
+                ->orwhere('year', 'like', '%' . $this->search . '%')
+                ->orwhere('price', 'like', '%' . $this->search . '%');
             });
-        $advertisements = $queryAdvertisement->where('user_id', $this->user->id)->orderBy('id', 'DESC')->paginate(6);
-        return view('livewire..advertisement.component-index', compact('advertisements'));
-    }
-
-    public function create()
-    {
-        redirect()->route('advertisement.create');
+        $advertisements = $queryAdvertisement->orderBy('id', 'DESC')->paginate(7);
+        return view('livewire..approve.component-index', compact('advertisements'));
     }
 
     public function show($id)
     {
-        redirect()->route('advertisement.show', $id);
-    }
-
-    public function edit($id)
-    {
-        redirect()->route('advertisement.edit', $id);
-    }
-
-    public function destroy($id)
-    {
-        $this->advertisement_id = $id;
-        $this->deleteModal = true;
-    }
-
-    public function delete()
-    {
-        $advertisement = Advertisement::find($this->advertisement_id);
-        $advertisement->delete();
-
-        $this->deleteModal = false;
+        redirect()->route('approve.show', $id);
     }
 
     public function resetSearch()

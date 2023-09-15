@@ -2,7 +2,7 @@
     <div class="flex items-center justify-center gap-2">
         {{ $image }}
     </div>
-    <div class="p-5">        
+    <div class="p-4">        
         <h5 class="mb-2 text-center text-xl font-bold tracking-tight text-gray-900 dark:text-white">
             {{ $text }}
         </h5>
@@ -24,7 +24,7 @@
         </div>
 
         <div class="flex items-center mb-5">
-            <h5 class="mb-2 text-lg font-normal tracking-tight text-gray-700 dark:text-gray-400">
+            <h5 class="text-lg font-normal tracking-tight text-gray-700 dark:text-gray-400">
                 {{ __('Esthetic') }}
             </h5>
             <span
@@ -32,6 +32,10 @@
                 {{ $esthetic }}
             </span>
         </div>
+
+        <h5 class="text-center text-2xl font-bold tracking-tight text-green-400 dark:text-green-600">
+            {{ $price }}
+        </h5>
     </div>
 
     <div class="flex items-center justify-center mb-3">
