@@ -24,7 +24,25 @@ class AdvertisementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /*$advertisement = new Advertisement();
+        $advertisement->user_id = $request->user->id;
+        $advertisement->vin = $request->vin;
+        $advertisement->brand = $request->brand;
+        $advertisement->model = $request->model;
+        $advertisement->manufactured = $request->manufactured;
+        $advertisement->year = $request->year;
+        $advertisement->plate = $request->plate;
+        $advertisement->mileage = $request->mileage;
+        $advertisement->functioning = $request->functioning;
+        $advertisement->esthetic = $request->esthetic;
+        $advertisement->image1 = $request->image1->store('public');
+        $advertisement->image2 = $request->image2->store('public');
+        $advertisement->image3 = $request->image3->store('public');
+        $advertisement->image4 = $request->image4->store('public');
+        $advertisement->price = $request->price;
+        $advertisement->save();
+
+        return new AdvertisementResource($advertisement);*/
     }
 
     /**
@@ -32,8 +50,18 @@ class AdvertisementController extends Controller
      */
     public function show(string $id)
     {
-        $advertisement = Advertisement::findOrFail($id);
-        return new AdvertisementResource($advertisement);
+        try {
+            $advertisement = Advertisement::findOrFail($id);
+            return new AdvertisementResource($advertisement);
+        } catch (\Exception $e) {
+            return response()->json([
+                'is_success' => false,
+                'message'   => 'Validation errors',
+                'errors'  => [
+                    'id' => ['Id not found!']
+                ],
+            ]);
+        }
     }
 
     /**

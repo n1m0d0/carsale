@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\Api\AddressController;
 use App\Http\Controllers\Api\AdvertisementController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\PhoneController;
+use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,4 +26,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
 
+Route::resource('user', UserController::class);
+Route::resource('phone', PhoneController::class);
+Route::resource('address', AddressController::class);
 Route::apiResource('advertisement', AdvertisementController::class);

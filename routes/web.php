@@ -29,5 +29,13 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::resource('advertisement', AdvertisementController::class);
-Route::resource('approve', ApproveController::class);
+Route::resource('advertisement', AdvertisementController::class)->middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+]);
+Route::resource('approve', ApproveController::class)->middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+]);

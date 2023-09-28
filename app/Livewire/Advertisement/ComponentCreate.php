@@ -42,7 +42,7 @@ class ComponentCreate extends Component
         'manufactured' => 'required',
         'year' => 'required',
         'plate' => 'required',
-        'mileage' => 'required|min:1',
+        'mileage' => 'required|min:0',
         'functioning' => 'required|min:1|max:10',
         'esthetic' => 'required|min:1|max:10',
         'image1' => 'required|image|max:2048',

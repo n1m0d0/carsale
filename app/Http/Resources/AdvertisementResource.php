@@ -16,7 +16,6 @@ class AdvertisementResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->user->name,
             'brand' => $this->brand,
             'model' => $this->model,
             'manufactured' => $this->manufactured,
@@ -25,9 +24,9 @@ class AdvertisementResource extends JsonResource
             'mileage' => $this->mileage,
             'functioning' => $this->functioning,
             'esthetic' => $this->esthetic,
-            'image1' => $this->image1,            
-            'image2' => $this->image2,            
-            'image3' => $this->image3,            
+            'image1' => $this->image1,
+            'image2' => $this->image2,
+            'image3' => $this->image3,
             'image4' => $this->image4,
             'price' => number_format($this->price, 2) . 'Bs',
             'created_at' => $this->created_at->format('d/m/Y'),

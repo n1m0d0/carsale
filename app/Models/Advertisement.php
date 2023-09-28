@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -12,11 +13,6 @@ class Advertisement extends Model
 {
     use HasFactory;
     use SoftDeletes;
-
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class);
-    }
 
     protected function brand(): Attribute
     {
@@ -40,5 +36,10 @@ class Advertisement extends Model
             get: fn ($value) => strtoupper($value),
             set: fn ($value) => strtolower($value)
         );
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }
